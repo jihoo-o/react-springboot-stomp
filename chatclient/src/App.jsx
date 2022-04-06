@@ -1,24 +1,16 @@
 import './App.css';
-import { over } from 'stompjs';
-import SockJS from 'sockjs-client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Test from './components/Test';
 
 const App = () => {
-    useEffect(() => {
-        const onConnected = () => {
-            console.log('connected');
-        };
+    const [render, setRender] = useState(true);
 
-        const onError = () => {
-            console.error('errors!');
-        };
+    setTimeout(() => {
+        // 3초 뒤에 컴포넌트를 내리면서 소켓이 끊김
+        setRender(false);
+    }, 3000);
 
-        const Sock = new SockJS('http://localhost:8080/webSocket');
-        const stompClient = over(Sock);
-        stompClient.connect({}, onConnected, onError);
-    }, []);
-
-    return <div>app</div>;
+    return <>{render && <Test />}</>;
 };
 
 export default App;
