@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Test from './components/Test';
 
 const App = () => {
