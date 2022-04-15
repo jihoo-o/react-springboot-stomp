@@ -11,7 +11,7 @@ import com.stomptest1.chatserver.Model.Marker_user;
 public class ChatController {
     @MessageMapping("/marker")
     @SendTo("/topic/marker-create")
-    public Marker_user broadCast(Marker_user message){
+    public String broadCast(String message){
     	System.out.println(message);
         return message;
     }
