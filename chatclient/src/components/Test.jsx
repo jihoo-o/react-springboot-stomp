@@ -27,8 +27,9 @@ const Test = (props) => {
             test
             <button
                 onClick={() => {
+                    console.log('버튼 클릭됨');
                     stompClient.publish({
-                        destination: 'sc/markers/users', // 요청을 보내는 주소
+                        destination: '/sc/markers/users', // 요청을 보내는 주소
                         body: JSON.stringify('fake data!'), // 요청 보내는 데이터
                     });
                 }}

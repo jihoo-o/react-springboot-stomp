@@ -9,7 +9,7 @@ import com.stomptest1.chatserver.Model.Marker_user;
 
 @RestController
 public class ChatController {
-    @MessageMapping("/marker")
+    @MessageMapping("/sc/markers/users")
     @SendTo("/topic/marker-create")
     public String broadCast(String message){
     	System.out.println(message);
