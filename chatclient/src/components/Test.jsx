@@ -22,7 +22,21 @@ const Test = (props) => {
         return () => stompClient.deactivate();
     }, []);
 
-    return <div>test</div>;
+    return (
+        <div>
+            test
+            <button
+                onClick={() => {
+                    stompClient.publish({
+                        destination: 'sc/markers/users', // 요청을 보내는 주소
+                        body: JSON.stringify('fake data!'), // 요청 보내는 데이터
+                    });
+                }}
+            >
+                sc/markers/users로 요청 보내기
+            </button>
+        </div>
+    );
 };
 
 export default Test;
